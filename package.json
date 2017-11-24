@@ -1,0 +1,71 @@
+{
+  "name": "DrodReact",
+  "version": "1.0.0",
+  "description": "react+webpack",
+  "moduleRoots": [
+    "src"
+  ],
+  "keywords": [
+    "react",
+    "webpack",
+    "html"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "dev": "better-npm-run dev",
+    "compile": "better-npm-run compile"
+  },
+  "betterScripts": {
+    "dev": {
+      "command": "nodemon --exec node server.js",
+      "env": {
+        "NODE_ENV": "development"
+      }
+    },
+    "compile": {
+      "command": "rimraf dists && webpack && xcopy /s /y \"%cd%/src/static\" \"%cd%/dists\"",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  },
+  "author": "Drod",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.0",
+    "cssnano": "^3.10.0",
+    "extract-text-webpack-plugin": "^2.1.0",
+    "node-sass": "^4.5.2",
+    "nodemon": "^1.11.0",
+    "postcss-cssnext": "^2.10.0",
+    "postcss-loader": "^1.3.3",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1"
+  },
+  "dependencies": {
+    "better-npm-run": "0.0.15",
+    "classname": "^0.0.0",
+    "classnames": "^2.2.5",
+    "history": "^4.6.1",
+    "html-webpack-plugin": "^2.28.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-redux": "^5.0.4",
+    "react-router": "^4.1.1",
+    "react-router-redux": "^5.0.0-alpha.6",
+    "redux": "^3.6.0",
+    "redux-promise-middleware": "^4.2.0",
+    "redux-thunk": "^2.2.0",
+    "rimraf": "^2.6.2",
+    "superagent": "^3.5.2",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.2"
+  }
+}

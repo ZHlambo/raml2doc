@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="zh-cn">
+
+<head>
+  <title>Drod</title>
+  <meta charset="utf-8">
+  <!-- jquery 兼容360 -->
+  <meta name="renderer" content="webkit">
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.options.projectPath%>base.css"></link>
+  <link rel="stylesheet" href="//cdn.bootcss.com/codemirror/5.30.0/codemirror.min.css"></link>
+
+  <script src="//cdn.bootcss.com/codemirror/5.30.0/codemirror.min.js"></script>
+  <script src="//cdn.bootcss.com/codemirror/5.30.0/mode/javascript/javascript.min.js"></script>
+  <script src="//cdn.bootcss.com/codemirror/5.30.0/addon/lint/json-lint.min.js"></script>
+
+  <script src="<%=htmlWebpackPlugin.options.projectPath%>base.js" charset="utf-8"></script>
+
+  <script type="text/javascript">
+    window.handlers = [{
+      "verb": "post",
+      "uri": "/cat",
+      "description": "创建分类",
+      "handlerFunc": "createCat",
+      "groupBy": "auth",
+      "body": {
+        "example": {
+          "name": "catName"
+        },
+        "type": ["createCat"]
+      }
+    }, {
+      "verb": "get",
+      "uri": "/cat/root",
+      "description": "获取第一级分类",
+      "handlerFunc": "rootCat",
+      "groupBy": "cat"
+    }, {
+      "verb": "delete",
+      "uri": "/cat/:id",
+      "description": "删除单个分类",
+      "handlerFunc": "deleteCat",
+      "groupBy": "auth"
+    }, {
+      "verb": "get",
+      "uri": "/cat/:id/child",
+      "description": "获取分类的子集分类",
+      "handlerFunc": "getCatChild",
+      "groupBy": "cat"
+    }, {
+      "verb": "get",
+      "uri": "/cat/:id/info",
+      "description": "获取单个分类信息",
+      "handlerFunc": "getCatInfo",
+      "groupBy": "cat"
+    }, {
+      "verb": "put",
+      "uri": "/cat/:id/info",
+      "description": "修改单个分类信息",
+      "handlerFunc": "putCatInfo",
+      "groupBy": "auth"
+    }, {
+      "verb": "get",
+      "uri": "/cat/:id/sku",
+      "description": "获取分类下所有产品",
+      "handlerFunc": "getCatSkus",
+      "groupBy": "cat"
+    }];
+  </script>
+  <style media="screen">
+    .loading {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      height: 600px;
+    }
+  </style>
+</head>
+
+<body style="height: 100%;
+			width: 100%;
+      font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+			overflow:visible;scrollbar-base-color:rgba(0,0,0,0)">
+  <div id='root' style="height: 100%; position: relative;">
+    <div class="loading">
+      正在进入系统...
+    </div>
+  </div>
+</body>
+
+</html>
